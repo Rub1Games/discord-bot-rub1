@@ -69,24 +69,26 @@ client.on("message", async (message) => {
     }
     var args = message.content.slice(prefix.length).split(' ')
     if(message.content.startsWith(prefix)) {
-        if(servers[message.guild.id].lockedCommands) {
-            servers[message.guild.id].lockedCommands.forEach(cmd => {
-                if(cmd.name == args[0]) {
-                    if(cmd.permitedChannel != message.channel.id || cmd.permitedChannel == undefined) {
-                        enter = false
-                        if(cmd.permitedChannel)
-                            message.channel.send("Não podes usar esse comando aqui, usa em: ```#" + message.guild.channels.cache.get(cmd.permitedChannel).name + "```").then(msg => {
-                                msg.delete({ timeout: 2000});
-                            })
-                            .catch();
-                        else
-                            message.channel.send("Não podes usar esse comando neste servidor").then(msg => {
-                                msg.delete({ timeout: 2000});
-                            })
-                            .catch();
-                    }                 
-                }
-            })
+        if(servers[message.guild.id]) {
+            if(servers[message.guild.id].lockedCommands) {
+                servers[message.guild.id].lockedCommands.forEach(cmd => {
+                    if(cmd.name == args[0]) {
+                        if(cmd.permitedChannel != message.channel.id || cmd.permitedChannel == undefined) {
+                            enter = false
+                            if(cmd.permitedChannel)
+                                message.channel.send("Não podes usar esse comando aqui, usa em: ```#" + message.guild.channels.cache.get(cmd.permitedChannel).name + "```").then(msg => {
+                                    msg.delete({ timeout: 2000});
+                                })
+                                .catch();
+                            else
+                                message.channel.send("Não podes usar esse comando neste servidor").then(msg => {
+                                    msg.delete({ timeout: 2000});
+                                })
+                                .catch();
+                        }                 
+                    }
+                })
+            }
         }
         try {
             if(enter) {
