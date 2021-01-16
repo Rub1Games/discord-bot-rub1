@@ -67,6 +67,10 @@ client.on("message", async (message) => {
     if(servers[message.guild.id]) {
         prefix = servers[message.guild.id].prefix
     }
+    if(servers[message.guild.id] == undefined) {
+        servers[message.guild.id] = prefix
+        save.execute("./servers.json", servers)
+    }
     var args = message.content.slice(prefix.length).split(' ')
     if(message.content.startsWith(prefix)) {
         if(servers[message.guild.id]) {
