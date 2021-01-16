@@ -1,4 +1,3 @@
 {
-    "defaultPrefix": "-",
-    "token": process.env.TOKEN
+    "defaultPrefix": "-"
 }
