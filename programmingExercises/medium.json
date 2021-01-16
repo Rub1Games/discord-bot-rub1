@@ -1,0 +1,9 @@
+[
+    
+    "Escreva uma **função** que retorne o maior elemento em uma lista",
+    "Escreva uma **função** que retorne o menor elemento em uma lista",
+    "Escreva uma **função** que concatene duas listas. [a,b,c], [1,2,3] → [a,b,c,1,2,3]",
+    "Escreva uma **função** que combine duas listas tomando elementos alternadamente, por exemplo [a,b,c], [1,2,3] → [a,1,b,2,c,3]",
+    "Escreva uma **função** que misture duas listas classificadas em uma nova lista classificada. [1,4,6], [2,3,5] → [1,2,3,4,5,6]",
+    "Escreva uma **função** que some uma dada **lista** dados os numeros introduzidos pelo utilizador"
+]

@@ -1,0 +1,4 @@
+{
+    "defaultPrefix": "-",
+    "token": process.env.TOKEN
+}

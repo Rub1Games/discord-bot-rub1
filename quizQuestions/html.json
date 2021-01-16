@@ -1,0 +1,22 @@
+[
+    {"text": "É obrigatorio existir a tag <title> e esta tem de conter texto","answer": "👍"},
+    {"text": "Para utilizar um css externo utiliza-se o atributo href", "answer": "👍"},
+    {"text": "É graças ao DSM que os endereços URL não são números (IP).", "answer": "👎"},
+    {"text": "HTML é a linguagem de programação base para qualquer website, todas as outras linguagens de programação Web correm sobre o HTML", "answer": "👎"},
+    {"text": "O atributo alt é obrigatório numa tag <img> mas é uma boa prática para pessoas com necessidades especiais.", "answer": "👍"},
+    {"text": "Em CSS não se pode utilizar dois identificadores com o mesmo nome.", "answer": "👍"},
+    {"text": "<div> é uma tag semântica para blocos (containers) de outras tags.", "answer": "👎"},
+    {"text": "A seguinte regra css div.verde é uma regra agrupada que se aplica aos elementos com a tag <div> e aos elementos com a class .verde", "answer": "👎"},
+    {"text": "A vantagem de usar um css externo é a regra das precedências, assim as regras externas vão-se sobrepor sempre às internas.","answer": "👎"},
+    {"text": "O atributo mais externo do modelo de caixa é o margin e é sempre transparente.", "answer": "👍"},
+    {"text": "O CSS pode estar dentro da tag <header>", "answer": "👎"},
+    {"text": "O CSS pode estar dentro da tag style", "answer": "👎"},
+    {"text": "O CSS pode estar dentro da tag html", "answer": "👎"},
+    {"text": "O CSS pode estar dentro do atributo style", "answer": "👍"},
+    {"text": "O CSS pode estar num ficheiro externo", "answer": "👍"},
+    {"text": "O css pode estar na tag head", "answer": "👍"},
+    {"text": "O código abaixo está correto:\n<nav>\n<div>Já alguma vez viu uma div dentro de uma nav?</div>\n</nav>", "answer": "👍"},
+    {"text": "O código abaixo está correto:\n<article>\n<section>Eu sou uma secção dentro de um artigo.</section>\n</article>", "answer":"👍"},
+    {"text": "O código abaixo está errado:\n<ul>\n<li>Eu sou um item de uma lista\n<ul>\n<li>E eu uma lista dentro de um item</li>\n</ul>\n</li>\n</ul>", "answer":"👎"},
+    {"text": "O código abaixo está correto:\n<i>\n<h1>Eu sou um título em itálico</h1>\n</i>", "answer": "👎"}
+]
