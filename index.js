@@ -110,7 +110,8 @@ client.on("message", async (message) => {
                 }
             }
         }
-        catch {
+        catch (err){
+            console.log(err)
             message.channel.send("Ocurreu um erro ao tentar executar o comando, tente usar o comando 'help'!").then(msg => {
                 msg.delete({ timeout: 10000});
             })
