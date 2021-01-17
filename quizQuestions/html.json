@@ -10,7 +10,7 @@
     {"text": "A vantagem de usar um css externo é a regra das precedências, assim as regras externas vão-se sobrepor sempre às internas.","answer": "👎"},
     {"text": "O atributo mais externo do modelo de caixa é o margin e é sempre transparente.", "answer": "👍"},
     {"text": "O CSS pode estar dentro da tag <header>", "answer": "👎"},
-    {"text": "O CSS pode estar dentro da tag style", "answer": "👎"},
+    {"text": "O CSS pode estar dentro da tag style", "answer": "👍"},
     {"text": "O CSS pode estar dentro da tag html", "answer": "👎"},
     {"text": "O CSS pode estar dentro do atributo style", "answer": "👍"},
     {"text": "O CSS pode estar num ficheiro externo", "answer": "👍"},

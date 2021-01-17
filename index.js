@@ -64,12 +64,10 @@ client.on("guildDelete", guild => {
 
 client.on("message", async (message) => {
     let enter = true
-    if(servers[message.guild.id]) {
+    if(servers[message.guild.id] != undefined) {
         prefix = servers[message.guild.id].prefix
-    }
-    if(servers[message.guild.id] == undefined) {
+    } else {
         servers[message.guild.id] = {"prefix": prefix}
-        require('./save.js').execute("./servers.json", servers)
     }
     var args = message.content.slice(prefix.length).split(' ')
     if(message.content.startsWith(prefix)) {
@@ -114,7 +112,7 @@ client.on("message", async (message) => {
                 }
             }
         }
-        catch (err){
+        catch (err) {
             console.log(err)
             message.channel.send("Ocurreu um erro ao tentar executar o comando, tente usar o comando 'help'!").then(msg => {
                 msg.delete({ timeout: 10000});

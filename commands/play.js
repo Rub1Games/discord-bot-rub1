@@ -16,9 +16,9 @@ module.exports = {
     name: 'Musica',
     description: 'O bot irá tocar uma musica do youtube ou uma playlist!',
     async execute(message, args, servers) {
+        embedMessage.setColor('#0099ff').setTitle(this.name).setDescription(this.description).setTimestamp().setFooter(message.author.username, message.author.avatarURL())
         if(args.length > 0) {
             args = args.join(' ')
-            embedMessage.setColor('#0099ff').setTitle(this.name).setDescription(this.description).setTimestamp().setFooter(message.author.username, message.author.avatarURL())
             const voiceChannel = message.member.voice.channel;
             if (!voiceChannel) {
                 return message.reply('please join a voice channel first!');
@@ -39,7 +39,7 @@ module.exports = {
             return returnIndex
         } else {
             if(servers[message.guild.id].queue) {
-                if(servers[message.guild.id].queue.length > 0) {
+                if(servers[message.guild.id].queue.length > 0 && servers[message.guild.id].nowPlaying != undefined) {
                     const voiceChannel = message.member.voice.channel
                     voiceChannel.join().then(async connection => {
                         message.channel.send("Começando a ultima lista de músicas!")
@@ -47,6 +47,10 @@ module.exports = {
                         return forReturn
                     })
                 }
+            } else {
+                embedMessage.addField('Ajuda', 'Use o comando play mais a musica/playlist do youtube: ' + servers[message.guild.id].prefix + 'play <musica/playlist>').setTimestamp().setFooter(message.author.username, message.author.avatarURL()).setThumbnail(message.author.avatarURL())
+                message.channel.send(embedMessage)
+                embedMessage.fields = null
             }
         }
     }
@@ -78,6 +82,7 @@ async function play(connection, url, message, servers, skipFile) {
                     await play(connection, nextVideo, message, servers, true)
                 }
                 else {
+                    servers[message.guild.id].nowPlaying = undefined
                     servers[message.guild.id].queue = undefined
                     require('../save.js').execute("servers.json", servers)
                     voiceChannel.leave()

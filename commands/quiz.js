@@ -22,6 +22,9 @@ module.exports = {
         if(args[0] && args[1]) {
             try {
                 if(args[1] == "start") {
+                    if(servers[message.guild.id] == undefined) {
+                        servers[message.guild.id] = {"quiz": {}}
+                    }
                     servers[message.guild.id].quiz = {"playing": true, "name": args[0]}
                     message.channel.send("Você começou o quiz!").then(msg => {
                         msg.delete({ timeout: 2000});
