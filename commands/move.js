@@ -20,7 +20,7 @@ module.exports = {
                 let member = message.member.guild.members.cache.get(id)
                 // member move to move1 e move to move2 forever
                 for(let i = 0; i < parseInt(args[1]); i++) {
-                    await sleep(1500).then(() => {
+                    await sleep(2500).then(() => {
                         member.voice.setChannel(eval(`move${i % 2}.id`))
                         console.log(i % 2)
                     });
