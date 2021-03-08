@@ -7,7 +7,7 @@ function sleep (time) {
 module.exports = {
     name: 'Move Person',
     async execute(message, args, servers) {
-        if(args[0] && args[1]) {
+        if(args[0] && args[1] && args[0].startsWith('<@!') && (args[1] > 0 && args[1] <= 10)) {
             try {
                 //ver se existe o move1 e move 2
                 let move0 = message.guild.channels.cache.find(channel => channel.name === "Move 1");
@@ -20,15 +20,16 @@ module.exports = {
                 let member = message.member.guild.members.cache.get(id)
                 // member move to move1 e move to move2 forever
                 for(let i = 0; i < parseInt(args[1]); i++) {
-                    await sleep(2500).then(() => {
+                    await sleep(1500).then(() => {
                         member.voice.setChannel(eval(`move${i % 2}.id`))
                     });
                 }
-                message.channel.send("Finished");
                 console.log(member)
             } catch {
                 message.channel.send("Não posso criar ou enviar utilizadores")
             }
+        } else {
+            message.channel.send("Use move @Pessoa <x vezes> x vezes entre 1 e 10")
         }
     }
 }
