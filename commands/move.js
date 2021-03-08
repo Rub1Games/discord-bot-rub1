@@ -25,6 +25,7 @@ module.exports = {
                         console.log(i % 2)
                     });
                 }
+                message.channel.send("Finished");
                 console.log(member)
             } catch {
                 message.channel.send("Não posso criar ou enviar utilizadores")
