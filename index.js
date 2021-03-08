@@ -23,40 +23,6 @@ client.on("guildCreate", guild => {
     servers = require("./servers.json");
 })
 
-client.on("messageReactionAdd", (reaction, user) => {
-    if(user.bot) return;
-    if(reaction.message.embeds[0].fields[0].name == "Pergunta") {
-        let cmd = require('./commands/quiz.js')
-        fs.readdir("./quizQuestions/", (err, files) => {
-            files.forEach(file => {
-                let jsonFile = require(`./quizQuestions/${file}`)
-                jsonFile.forEach(line => {
-                    if(line.text == reaction.message.embeds[0].fields[0].value) {
-                        if(reaction.emoji.name != line.answer) {
-                            reaction.message.channel.send(`<@${user.id}> você obteu: ❌`).then(msg => {
-                                msg.delete({ timeout: 2000});
-                            })
-                            .catch();
-                        } else {
-                            reaction.message.channel.send(`<@${user.id}> você obteu: :white_check_mark:`).then(msg => {
-                                msg.delete({ timeout: 2000});
-                            })
-                            .catch();
-                        }
-                    }
-                })
-                if(servers[reaction.message.guild.id]) {
-                    if(servers[reaction.message.guild.id].quiz) {
-                        if(servers[reaction.message.guild.id].quiz.playing && file.replace('.json', '') == servers[reaction.message.guild.id].quiz.name) {
-                            cmd.getQuiz(reaction.message, file.replace('.json', ''))
-                        }
-                    }
-                }
-            })  
-        })
-    }
-})
-
 client.on("guildDelete", guild => {
     console.log("Left a guild: " + guild.name);
     client.user.setActivity(`${client.guilds.cache.size} Server(s)`)
