@@ -22,7 +22,6 @@ module.exports = {
                 for(let i = 0; i < parseInt(args[1]); i++) {
                     await sleep(2500).then(() => {
                         member.voice.setChannel(eval(`move${i % 2}.id`))
-                        console.log(i % 2)
                     });
                 }
                 message.channel.send("Finished");
