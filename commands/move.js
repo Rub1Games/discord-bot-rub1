@@ -31,9 +31,10 @@ module.exports = {
                             voiceChannel = member.voiceChannel;
                             console.log(voiceChannel);
                             while(!voiceChannel) {
-                                await sleep(1000).then(() => {
+                                sleep(1000).then(() => {
                                     
                                 })
+                                console.log("Segundo")
                             }
                             member.voice.setChannel(eval(`move${i % 2}.id`))
                         });
