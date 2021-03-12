@@ -23,7 +23,8 @@ module.exports = {
                 let member = message.member.guild.members.cache.get(id)
                 if(id == "322089201455595530")
                     return;
-                let voiceChannel = member.voiceChannel;
+                let voiceChannel = member.voice.channel;
+                console.log(member);
                 if(voiceChannel) {
                     // member move to move1 e move to move2 forever
                     for(let i = 0; i < parseInt(args[1]); i++) {
