@@ -24,15 +24,14 @@ module.exports = {
                 if(id == "322089201455595530")
                     return;
                 let voiceChannel = member.voice.channel;
-                console.log(member);
                 if(voiceChannel) {
                     // member move to move1 e move to move2 forever
                     for(let i = 0; i < parseInt(args[1]); i++) {
                         await sleep(2000).then(() => {
-                            voiceChannel = member.voiceChannel;
+                            voiceChannel = member.voice.channel;
                             console.log(voiceChannel);
                             while(!voiceChannel) {
-                                sleep(1000).then(() => {
+                                await sleep(1000).then(() => {
                                     
                                 })
                                 console.log("Segundo")
