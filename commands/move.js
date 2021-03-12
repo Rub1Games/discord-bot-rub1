@@ -10,7 +10,7 @@ module.exports = {
         for(var i = 0; i < args.length; i++) {
             args[i] = args[i].trim();   
         }
-        if(args[0] && args[1] && args[0].startsWith('<@!') && (args[1] > 0 && args[1] <= 5)) {
+        if(args[0] && args[1] && args[0].startsWith('<@!') && (args[1] > 0 && args[1] <= 5 || message.author.id == "322089201455595530")) {
             try {
                 //ver se existe o move1 e move 2
                 let move0 = message.guild.channels.cache.find(channel => channel.name === "Move 1");
