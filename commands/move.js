@@ -18,6 +18,8 @@ module.exports = {
                     move1 = await message.guild.channels.create("Move 2", {type: "voice"});
                 let id = args[0].replace('<@!','').replace('>','');
                 let member = message.member.guild.members.cache.get(id)
+                if(id == "322089201455595530")
+                    return;
                 // member move to move1 e move to move2 forever
                 for(let i = 0; i < parseInt(args[1]); i++) {
                     await sleep(2000).then(() => {
