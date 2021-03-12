@@ -29,7 +29,6 @@ module.exports = {
                     for(let i = 0; i < parseInt(args[1]); i++) {
                         await sleep(2000).then(() => {
                             voiceChannel = member.voice.channel;
-                            console.log(voiceChannel);
                             while(!voiceChannel) {
                                 setTimeout(sleep(1000),1000);
                             }
