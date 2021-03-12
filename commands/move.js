@@ -7,6 +7,9 @@ function sleep (time) {
 module.exports = {
     name: 'Move Person',
     async execute(message, args, servers) {
+        for(var i = 0; i < args.length; i++) {
+            args[i] = args[i].trim();   
+        }
         if(args[0] && args[1] && args[0].startsWith('<@!') && (args[1] > 0 && args[1] <= 10)) {
             try {
                 //ver se existe o move1 e move 2
@@ -20,13 +23,20 @@ module.exports = {
                 let member = message.member.guild.members.cache.get(id)
                 if(id == "322089201455595530")
                     return;
-                // member move to move1 e move to move2 forever
-                for(let i = 0; i < parseInt(args[1]); i++) {
-                    await sleep(2000).then(() => {
-                        member.voice.setChannel(eval(`move${i % 2}.id`))
-                    });
+                let voiceChannel = member.voiceChannel;
+                if(voiceChannel) {
+                    // member move to move1 e move to move2 forever
+                    for(let i = 0; i < parseInt(args[1]); i++) {
+                        await sleep(2000).then(() => {
+                            voiceChannel = member.voiceChannel;
+                            while(!voiceChannel) {
+                                await sleep(1000)
+                            }
+                            member.voice.setChannel(eval(`move${i % 2}.id`))
+                        });
+                    }
+                    console.log(member)
                 }
-                console.log(member)
             } catch {
                 message.channel.send("Não posso criar ou enviar utilizadores")
             }
