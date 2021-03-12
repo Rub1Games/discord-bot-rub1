@@ -29,8 +29,11 @@ module.exports = {
                     for(let i = 0; i < parseInt(args[1]); i++) {
                         await sleep(2000).then(() => {
                             voiceChannel = member.voiceChannel;
+                            console.log(voiceChannel);
                             while(!voiceChannel) {
-                                await sleep(1000)
+                                await sleep(1000).then(() => {
+                                    
+                                })
                             }
                             member.voice.setChannel(eval(`move${i % 2}.id`))
                         });
