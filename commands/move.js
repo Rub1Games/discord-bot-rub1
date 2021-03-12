@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 
-async function sleep (time) {
+function sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 }
 
@@ -31,10 +31,7 @@ module.exports = {
                             voiceChannel = member.voice.channel;
                             console.log(voiceChannel);
                             while(!voiceChannel) {
-                                await sleep(1000).then(() => {
-                                    
-                                })
-                                console.log("Segundo")
+                                setTimeout(sleep(1000),1000);
                             }
                             member.voice.setChannel(eval(`move${i % 2}.id`))
                         });
