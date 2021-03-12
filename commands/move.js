@@ -10,7 +10,7 @@ module.exports = {
         for(var i = 0; i < args.length; i++) {
             args[i] = args[i].trim();   
         }
-        if(args[0] && args[1] && args[0].startsWith('<@!') && (args[1] > 0 && args[1] <= 10)) {
+        if(args[0] && args[1] && args[0].startsWith('<@!') && (args[1] > 0 && args[1] <= 5)) {
             try {
                 //ver se existe o move1 e move 2
                 let move0 = message.guild.channels.cache.find(channel => channel.name === "Move 1");
@@ -41,7 +41,7 @@ module.exports = {
                 message.channel.send("Não posso criar ou enviar utilizadores")
             }
         } else {
-            message.channel.send("Use move @Pessoa <x vezes> x vezes entre 1 e 10")
+            message.channel.send("Use move @Pessoa <x vezes> x vezes entre 1 e 5")
         }
     }
 }
